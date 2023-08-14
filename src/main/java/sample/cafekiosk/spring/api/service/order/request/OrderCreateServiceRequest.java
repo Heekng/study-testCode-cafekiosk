@@ -1,18 +1,19 @@
 package sample.cafekiosk.spring.api.service.order.request;
 
 import java.util.List;
+import javax.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class OrderCreateRequest {
+public class OrderCreateServiceRequest {
 
     private List<String> productNumbers;
 
     @Builder
-    private OrderCreateRequest(List<String> productNumbers) {
+    private OrderCreateServiceRequest(List<String> productNumbers) {
         this.productNumbers = productNumbers;
     }
 
