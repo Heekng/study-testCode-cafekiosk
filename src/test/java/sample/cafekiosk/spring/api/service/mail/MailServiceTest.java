@@ -10,6 +10,7 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -22,8 +23,8 @@ import sample.cafekiosk.spring.domain.history.mail.MailSendHistoryRepository;
 @ExtendWith(MockitoExtension.class) // 모키토 이용해서 목 만들거야!
 class MailServiceTest {
 
-    //    @Mock
-    @Spy
+    @Mock
+    //    @Spy
     private MailSendClient mailSendClient;
 
     @Mock
@@ -44,8 +45,11 @@ class MailServiceTest {
         // stubbing
         // spy를 쓰면 when을 사용할 수 없다.(실제 객체를 사용하기 때문에)
         //        when(mailSendClient.sendEmail(anyString(), anyString(), anyString(), anyString())).thenReturn(true);
-        doReturn(true).when(mailSendClient)
-            .sendEmail(anyString(), anyString(), anyString(), anyString());
+        //        doReturn(true).when(mailSendClient)
+        //            .sendEmail(anyString(), anyString(), anyString(), anyString());
+
+        BDDMockito.given(mailSendClient.sendEmail(anyString(), anyString(), anyString(), anyString()))
+            .willReturn(true);
 
         // when
         boolean result = mailService.sendMail("", "", "", "");
