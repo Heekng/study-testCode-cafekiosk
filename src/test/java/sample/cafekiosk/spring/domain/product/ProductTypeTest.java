@@ -31,4 +31,27 @@ class ProductTypeTest {
         assertThat(result).isTrue();
     }
 
+    @DisplayName("이렇게 작성하지 말 것! 상품 타입이 재고 관련 타입인지를 체크한다.")
+    @Test
+    void test() {
+        // given
+        ProductType[] productTypes = ProductType.values();
+
+        for (ProductType productType : productTypes) {
+            if (productType == ProductType.HANDMADE) {
+                // when
+                boolean result = ProductType.containsStockType(productType);
+
+                // then
+                assertThat(result).isFalse();
+            }
+            if (productType == ProductType.BAKERY || productType == ProductType.BOTTLE) {
+                // when
+                boolean result = ProductType.containsStockType(productType);
+                // then
+                assertThat(result).isTrue();
+            }
+        }
+    }
+
 }
