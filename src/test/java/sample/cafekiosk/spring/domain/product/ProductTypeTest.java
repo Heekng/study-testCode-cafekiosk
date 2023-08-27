@@ -110,15 +110,15 @@ class ProductTypeTest {
         assertThat(result).isEqualTo(expected);
     }
 
-    @DisplayName("")
-    @TestFactory
-    Collection<DynamicTest> dynamicTest() {
-        return List.of(DynamicTest.dynamicTest("", () -> {
-
-        }), DynamicTest.dynamicTest("", () -> {
-
-        }));
-    }
+    //    @DisplayName("")
+    //    @TestFactory
+    //    Collection<DynamicTest> dynamicTest() {
+    //        return List.of(DynamicTest.dynamicTest("", () -> {
+    //
+    //        }), DynamicTest.dynamicTest("", () -> {
+    //
+    //        }));
+    //    }
 
     @DisplayName("재고 차감 시나리오")
     @TestFactory

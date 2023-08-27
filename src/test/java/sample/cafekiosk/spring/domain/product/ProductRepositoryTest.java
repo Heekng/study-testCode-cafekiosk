@@ -11,11 +11,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
+import sample.cafekiosk.spring.IntegrationTestSupport;
 
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
 //@SpringBootTest
-@DataJpaTest // 스프링 서버를 띄워서 테스트한다. 하지만 SpringBootTest 보다 가볍다.(JPA 관련 빈들만 주입)
-class ProductRepositoryTest {
+//@DataJpaTest // 스프링 서버를 띄워서 테스트한다. 하지만 SpringBootTest 보다 가볍다.(JPA 관련 빈들만 주입)
+@Transactional
+class ProductRepositoryTest extends IntegrationTestSupport {
 
     @Autowired
     private ProductRepository productRepository;
